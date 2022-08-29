@@ -95,6 +95,15 @@ function denter() {
  return 0
 }
 
+# Ansible container
+function ansible() {
+        docker run -t ${1} ansible ${@:2}
+}
+function ansibleplaybook() {
+        docker run -t ${1} ansible-playbook ${@:2}
+}
+alias ansible-playbook="ansibleplaybook"
+
 # Delete a given line number in the known_hosts file.
 knownrm() {
  re='^[0-9]+$'
