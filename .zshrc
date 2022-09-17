@@ -95,6 +95,15 @@ function denter() {
  return 0
 }
 
+# Ansible container
+function ansible() {
+        docker run -t ${1} ansible ${@:2}
+}
+function ansibleplaybook() {
+        docker run -t ${1} ansible-playbook ${@:2}
+}
+alias ansible-playbook="ansibleplaybook"
+
 # Delete a given line number in the known_hosts file.
 knownrm() {
  re='^[0-9]+$'
@@ -103,6 +112,17 @@ knownrm() {
  else
    sed -i '' "$1d" ~/.ssh/known_hosts
  fi
+}
+
+function encrypt_file () {
+  encrypted="$(cat $1 | openssl enc -aes-256-cbc -md sha512 -a -pbkdf2 -iter 100000 -salt)"
+  echo $encrypted > $1
+}
+
+
+function decrypt_file () {
+  human_readable="$(cat $1 | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt)"
+  echo $human_readable > $1
 }
 
 # Allow Composer to use almost as much RAM as Chrome.
