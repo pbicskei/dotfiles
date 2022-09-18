@@ -25,11 +25,11 @@ fi
 
 # Allow history search via up/down keys.
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey "^[[A" zsh-history-substring-search-up
-bindkey "^[[B" zsh-history-substring-search-down
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
 
 # Enable plugins.
-plugins=(git brew history kubectl zsh-history-substring-search zsh-syntax-highlighting)
+plugins=(git brew history kubectl zsh-syntax-highlighting zsh-history-substring-search)
 
 # Nicer prompt.
 # export PS1=$'\n'"%F{green} %*%F %3~ %F{white}"$'\n'"$ "
