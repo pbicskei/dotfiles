@@ -116,13 +116,13 @@ knownrm() {
  fi
 }
 
-function encrypt_file () {
+encrypt_file () {
   encrypted="$(cat $1 | openssl enc -aes-256-cbc -md sha512 -a -pbkdf2 -iter 100000 -salt)"
   echo $encrypted > $1
 }
 
 
-function decrypt_file () {
+decrypt_file () {
   human_readable="$(cat $1 | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt)"
   echo $human_readable > $1
 }
@@ -145,4 +145,4 @@ export COMPOSER_MEMORY_LIMIT=-1
 #  fi
 #}
 #shopt -s extdebug
-#trap prod_command_trap DEBUG
+# trap prod_command_trap DEBUG
