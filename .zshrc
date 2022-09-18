@@ -9,7 +9,7 @@ export CLICOLOR=1
 export CLICOLOR_FORCE=1
 
 # Set THEME
-ZSH_THEME=apple
+ZSH_THEME=clean
 
 # Don't require escaping globbing characters in zsh.
 unsetopt nomatch
