@@ -2,7 +2,6 @@
 # .zshrc
 #
 #
-
 # Colors.
 unset LSCOLORS
 export CLICOLOR=1
@@ -18,7 +17,7 @@ unsetopt nomatch
 export PS1=$'\n'"%F{green} %*%F %3~ %F{white}"$'\n'"$ "
 
 # Enable plugins.
-plugins=(git brew history kubectl zsh-history-substring-search)
+plugins=(git brew history kubectl zsh-history-substring-search zsh-syntax-highlighting)
 
 # Custom $PATH with extra locations.
 export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
