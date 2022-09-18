@@ -7,29 +7,11 @@ unset LSCOLORS
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
 
-# Enable plugins.
-plugins=(git brew history kubectl zsh-history-substring-search zsh-syntax-highlighting)
-
 # Set THEME
 ZSH_THEME=clean
 
 # Don't require escaping globbing characters in zsh.
 unsetopt nomatch
-
-# Nicer prompt.
-export PS1=$'\n'"%F{green} %*%F %3~ %F{white}"$'\n'"$ "
-
-# Custom $PATH with extra locations.
-export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
-
-# Bash-style time output.
-export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
-
-# Include alias file (if present) containing aliases for ssh, etc.
-if [ -f ~/.aliases ]
-then
-  source ~/.aliases
-fi
 
 # Set architecture-specific brew share path.
 arch_name="$(uname -m)"
@@ -42,9 +24,27 @@ else
 fi
 
 # Allow history search via up/down keys.
-source ${share_path}/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey "^[[A" zsh-history-substring-search-up
 bindkey "^[[B" zsh-history-substring-search-down
+
+# Enable plugins.
+plugins=(git brew history kubectl zsh-history-substring-search zsh-syntax-highlighting)
+
+# Nicer prompt.
+# export PS1=$'\n'"%F{green} %*%F %3~ %F{white}"$'\n'"$ "
+
+# Custom $PATH with extra locations.
+export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
+
+# Bash-style time output.
+export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
+
+# Include alias file (if present) containing aliases for ssh, etc.
+if [ -f ~/.aliases ]
+then
+  source ~/.aliases
+fi
 
 # Git aliases.
 alias gs='git status'
