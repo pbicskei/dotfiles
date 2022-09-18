@@ -44,8 +44,8 @@ fi
 
 # Allow history search via up/down keys.
 source ${share_path}/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey "^[[A" history-substring-search-up
-bindkey "^[[B" history-substring-search-down
+bindkey "^[[A" zsh-history-substring-search-up
+bindkey "^[[B" zsh-history-substring-search-down
 
 # Git aliases.
 alias gs='git status'
