@@ -112,12 +112,13 @@ knownrm() {
  fi
 }
 
+# Encrypt content of any given file
 encrypt_file () {
   encrypted="$(cat $1 | openssl enc -aes-256-cbc -md sha512 -a -pbkdf2 -iter 100000 -salt)"
   echo $encrypted > $1
 }
 
-
+# Decrypt content of any fiven file
 decrypt_file () {
   human_readable="$(cat $1 | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt)"
   echo $human_readable > $1
