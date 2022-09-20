@@ -126,10 +126,26 @@ decrypt_file () {
 
 # Scan for purpl3r-*.env files which should contain functions and aliases
 prpl3r_scan() {
-  if [[ -z $1 ]]; then dir=.; else dir=$1; fi
-  SCAN="$(tree -fin --noreport --prune $dir | grep "prpl3r-" | grep ".env" )"
+  if [[ -z $1 ]]; then
+    dir=.
+  else
+    dir=$1
+  fi
+  SCAN="$(tree -fin --noreport --prune $dir | grep "prpl3r-")"
   echo $SCAN
 }
+
+# Inherit purpl3r-* functions and aliases
+prpl3r_load() {
+  if [[ -z $SCAN ]]; then echo "No files defined, did you perform a prpl3r_scan first?";
+  else
+    for file in $SCAN
+    do
+      source $file
+    done
+fi
+}
+
 
 # Allow Composer to use almost as much RAM as Chrome.
 export COMPOSER_MEMORY_LIMIT=-1
