@@ -1,7 +1,3 @@
-#
-# .zshrc
-#
-#
 # Colors.
 unset LSCOLORS
 export CLICOLOR=1
@@ -87,7 +83,7 @@ dockrun() {
 }
 
 # Enter a running Docker container.
-function denter() {
+denter() {
  if [[ ! "$1" ]] ; then
      echo "You must supply a container ID or name."
      return 0
