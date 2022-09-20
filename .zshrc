@@ -124,6 +124,13 @@ decrypt_file () {
   echo $human_readable > $1
 }
 
+# Scan for purpl3r-*.env files which should contain functions and aliases
+prpl3r_scan() {
+  if [[ -z $1 ]]; then dir=.; else dir=$1; fi
+  SCAN="$(tree -fin --noreport --prune $dir | grep "prpl3r-" | grep ".env" )"
+  echo $SCAN
+}
+
 # Allow Composer to use almost as much RAM as Chrome.
 export COMPOSER_MEMORY_LIMIT=-1
 
