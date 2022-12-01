@@ -124,6 +124,10 @@ decrypt_file () {
   echo $human_readable > $1
 }
 
+flushdns() {
+	sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+}
+
 # Scan for purpl3r-*.env files which should contain functions and aliases
 prpl3r_scan() {
   if [[ -z $1 ]]; then
