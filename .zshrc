@@ -1,3 +1,6 @@
+# Get aliases first
+source .aliases
+
 # Colors.
 unset LSCOLORS
 export CLICOLOR=1
