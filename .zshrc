@@ -1,8 +1,10 @@
-# Get aliases first
-
-if [[ -f $(pwd)/.env ]]; then
-  source "$(pwd)/.env"
+# Automatically load environment files in directory
+files=('.env' '.aliases')
+for file in "${files[@]}"; do
+if [[ -f $(pwd)/$file ]]; then
+  source "$(pwd)/$file"
 fi
+done
 
 # Colors.
 unset LSCOLORS
