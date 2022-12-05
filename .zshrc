@@ -1,5 +1,8 @@
 # Get aliases first
-source .aliases
+
+if [[ -f $(pwd)/.env ]]; then
+  source "$(pwd)/.env"
+fi
 
 # Colors.
 unset LSCOLORS
